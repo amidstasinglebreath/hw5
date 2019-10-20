@@ -21,7 +21,7 @@ function setTimeBlocks(){
     if (setStatus === null){
         //future versions may use a different version of hourArray for tracking.
         for (var i = 0; i < hourArray.length; i++){
-            var timeSegment = {hour: hourArray[i], details: " "};
+            var timeSegment = {hour: hourArray[i], details: "pie"};
             usersTime.push(timeSegment);
         }
         localStorage.setItem("Saved Times", JSON.stringify(usersTime));
@@ -49,7 +49,7 @@ loadTimeBlocks();
  */
 
  //population/load function
-/*
+///*
  function loadTimeBlocks (){
     for (var i = 0; i < usersTime.length; i++){
         //timeblock
@@ -58,13 +58,13 @@ loadTimeBlocks();
         //hour
         var curHour = $("<span>");
         curHour.addClass("input-group-text hour-marker");
-        curHour.attr("text", usersTime[i].hour)
+        curHour.text(usersTime[i].hour);
         buffer.append(curHour);
         //content
         var cInput = $("<input>");
         cInput.addClass("planner-entry");
         cInput.attr("type", "text");
-        cInput.attr("placeholder", usersTime[i].details)
+        cInput.text(usersTime[i].details);
         buffer.append(cInput);
         //submit
         var cButton = $("<button>");
@@ -73,15 +73,15 @@ loadTimeBlocks();
         buffer.append(cButton);
 
         //append to content
-        $("#container").append(buffer);
+        $(".container").append(buffer);
         //$("#container").append("<hr>");
         
     }
 
 }
 
-loadTimeBlocks();
-*/
+//loadTimeBlocks();
+//*/
 
 //function that is called within loadTimeblocks that gives the color based on current 
 function colorForCurrent(){
