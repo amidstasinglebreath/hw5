@@ -21,7 +21,7 @@ function setTimeBlocks(){
     if (setStatus === null){
         //future versions may use a different version of hourArray for tracking.
         for (var i = 0; i < hourArray.length; i++){
-            var timeSegment = {hour: hourArray[i], details: "pie"};
+            var timeSegment = {hour: hourArray[i], details: " "};
             usersTime.push(timeSegment);
         }
         localStorage.setItem("Saved Times", JSON.stringify(usersTime));
@@ -64,7 +64,7 @@ loadTimeBlocks();
         var cInput = $("<input>");
         cInput.addClass("planner-entry");
         cInput.attr("type", "text");
-        cInput.text(usersTime[i].details);
+        cInput.attr("placeholder", usersTime[i].details);
         buffer.append(cInput);
         //submit
         var cButton = $("<button>");
@@ -74,7 +74,7 @@ loadTimeBlocks();
 
         //append to content
         $(".container").append(buffer);
-        //$("#container").append("<hr>");
+        //$(".container").append("<hr>");
         
     }
 
@@ -89,4 +89,9 @@ function colorForCurrent(){
 }
 
 //editing function
+$(".save-button").on("click", function(){
+    // either write all input fields to usersTime, or write specific location to relevant place in userstime.
+    // somewhat incompatible with input field method.
+    //$(".time-block").find("plannerentry")
 
+});
